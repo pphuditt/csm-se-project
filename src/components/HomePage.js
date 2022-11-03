@@ -11,6 +11,7 @@ import {ReactComponent as ProblemInformIcon} from "../statics/problem-inform-ico
 import {ReactComponent as InformHistoryIcon} from "../statics/inform-history-icon.svg";
 
 function HomePage() {
+  
   const theme = createTheme({
     typography: {
       fontFamily: "Sarabun",
