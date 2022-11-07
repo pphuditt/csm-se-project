@@ -1,11 +1,10 @@
 import * as React from "react";
-import { Button, ButtonBase, CardActionArea, createTheme, Grid, ThemeProvider } from "@mui/material";
+import {  CardActionArea, createTheme, Grid, ThemeProvider } from "@mui/material";
 import { Card, CardContent } from "@mui/material";
 import NavBar from "./NavBar";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "../css/HomePage.css";
-import { red } from "@mui/material/colors";
 import {ReactComponent as StatusIcon} from "../statics/status-icon.svg";
 import {ReactComponent as ProblemInformIcon} from "../statics/problem-inform-icon.svg"
 import {ReactComponent as InformHistoryIcon} from "../statics/inform-history-icon.svg";
@@ -110,7 +109,7 @@ function HomePage() {
               }}
             >
               <CardActionArea 
-                onClick={() => navigate("")}
+                onClick={() => navigate("/inform-history")}
                 justifyContent="center"
                 sx={{
                 height: 350,

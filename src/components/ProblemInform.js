@@ -71,13 +71,9 @@ function ProblemInform() {
                     container
                     spacing={2}
                     direction="row"
-                    // justifyContent="flex-start"
-                    // alignItems="center"
                     marginTop={8}
                     marginBottom={3}
-                    // paddingLeft={20}
                     fontSize={20}
-                    // // paddingRight={30}
                     // //   columns={{ xs: 2, md: 12 }}
                 >
                     <Grid item 
