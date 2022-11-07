@@ -23,8 +23,9 @@ function ProblemInform() {
             primary: {
                 main: "#555555",
             },
-            secondary: {
+            custom: {
                 main:  "#EB6B97",
+                contrastText: "#FFF"
             }
         }
       });
@@ -251,7 +252,7 @@ function ProblemInform() {
                                     <Grid item xs={12} lg={10}>
                                         <Stack>
                                             <TextField
-                                            style={{ width: 256 }}
+                                            style={textStyles}
                                             margin="normal"
                                             id="problem"
                                             select
@@ -312,7 +313,7 @@ function ProblemInform() {
                                     <Grid item xs={12} lg={10}>
                                         <Stack>
                                             <TextField
-                                            style={{ width: 256 }}
+                                            style={{ width: 300 }}
                                             margin="normal"
                                             id="problem"
                                             select
@@ -373,7 +374,7 @@ function ProblemInform() {
                                     <Grid item xs={12} lg={10}>
                                         <Stack>
                                             <TextField
-                                            style={{ width: 256 }}
+                                            style={textStyles}
                                             margin="normal"
                                             id="problem"
                                             select
@@ -434,7 +435,7 @@ function ProblemInform() {
                                     <Grid item xs={12} lg={10}>
                                         <Stack>
                                             <TextField
-                                            style={{ width: 256 }}
+                                            style={textStyles}
                                             margin="normal"
                                             id="problem"
                                             select
@@ -495,7 +496,7 @@ function ProblemInform() {
                                     <Grid item xs={12} lg={10}>
                                         <Stack>
                                             <TextField
-                                            style={{ width: 256 }}
+                                            style={textStyles}
                                             margin="normal"
                                             id="problem"
                                             select
@@ -613,7 +614,7 @@ function ProblemInform() {
                                 </Button>
 
                                 <Button variant="contained"
-                                color="secondary"
+                                color="custom"
                                 onClick={() => navigate("/inform-success")}
                                 >
                                     ตกลง
