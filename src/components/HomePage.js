@@ -44,7 +44,7 @@ function HomePage() {
               }}
             >
               <CardActionArea 
-                onClick={() => navigate("")}
+                onClick={() => navigate("/status")}
                 justifyContent="center"
                 sx={{
                 height: 350,

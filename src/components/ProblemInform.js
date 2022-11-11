@@ -599,16 +599,18 @@ function ProblemInform() {
                 justifyContent="center"
                 marginBottom={2}
                 >
-                    <Grid item xs={12} lg={12}>
+                    <Grid item xs={12} lg={12}
+                    marginRight={19.5}
+                    >
                             <Stack 
                             spacing={2}
                             direction="row"
                             justifyContent="flex-end"
-                            paddingRight={18}
                             >
                                 <Button 
                                 variant="outlined"
                                 onClick={() => navigate("/home")}
+                                size="large"
                                 >
                                     กลับ
                                 </Button>
@@ -616,6 +618,7 @@ function ProblemInform() {
                                 <Button variant="contained"
                                 color="custom"
                                 onClick={() => navigate("/inform-success")}
+                                size="large"
                                 >
                                     ตกลง
                                 </Button>
