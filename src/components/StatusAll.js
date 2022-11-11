@@ -1,37 +1,47 @@
 import * as React from "react";
 import NavBar from "./NavBar";
-import "../css/InformHistory.css";
+import "../css/StatusAll.css";
 import { Card, CardActionArea, CardContent, createTheme, Grid, ThemeProvider, Stack, Button } from "@mui/material";
 import { useNavigate } from "react-router-dom";
+import CircleIcon from '@mui/icons-material/Circle';
 
-function InformHistory() {
+function StatusAll() {
+
+    const theme = createTheme({
+        typography: {
+            fontFamily: "Sarabun",
+          },
+          palette: {
+              custom: {
+                  main: "#555555"
+              },
+          },
+    });
+
+    const navigate = useNavigate();
 
     const csmId = "CSM-25651100001"
     const problemTopic = "น้ำมีตะกอน, น้ำรั่ว, ผนังร้าว"
     const appointmentDate = "01/11/2022"
 
+    // const borderColor = (inputStatus) =>{
+    //     if (inputStatus === "กำลังดำเนินการซ่อม") return "#EB6B97"
+    //     else if (inputStatus === "กำลังดำเนินการส่งเรื่อง") return "#FFC72C"
+    //     else if (inputStatus === "ดำเนินการซ่อมสำเร็จ") return "#45B5A9"
+    // }
+    
+    // const status = (inputStatus) => {
+    //     if (inputStatus === "กำลังดำเนินการซ่อม") return "กำลังดำเนินการซ่อม"
+    //     else if (inputStatus === "กำลังดำเนินการส่งเรื่อง") return "กำลังดำเนินการส่งเรื่อง"
+    //     else if (inputStatus === "ดำเนินการซ่อมสำเร็จ") return "ดำเนินการซ่อมสำเร็จ"
+    // }
 
-    const navigate = useNavigate();
-
-    const theme = createTheme({
-        typography: {
-            fontFamily: "Sarabun",
-        },
-        palette: {
-            custom: {
-                main: "#555555",
-            }
-        },
-    });
-
-    return (
+    return(
         <ThemeProvider theme={theme}>
             <div className="page">
                 <NavBar />
 
-                <Grid container
-                spacing={2}
-                >
+                <Grid container spacing={2}>
                     <Grid container
                     direction="row"
                     marginBottom={3}
@@ -42,7 +52,7 @@ function InformHistory() {
                         justifyContent="center"
                         sx = {{ fontSize: 20 }}
                         >
-                            ประวัติการแจ้งปัญหา
+                            ติดตามสถานะ
                         </Grid>
                     </Grid>
 
@@ -56,9 +66,13 @@ function InformHistory() {
                                 width: "80%",
                                 height: "auto",
                                 bgcolor: "#F3F4F6",
+                                borderRadius: 4,
+                                border: 2,
+                                borderLeft: 16,
+                                borderColor: "#45B5A9" // changes depend on status
                             }}>
                                 <CardActionArea
-                                onClick={() => navigate("/inform-history-description")}
+                                onClick={() => navigate("/status-description")}
                                 sx={{
                                     fontFamily: "Sarabun",
                                     fontSize: 16,
@@ -93,9 +107,18 @@ function InformHistory() {
                                         </Grid>
 
                                         <Grid container
+                                        marginTop={2}
                                         paddingRight={4}
                                         >
-                                            <Grid item xs={12} lg={12}
+                                            <Grid item xs={12} lg={10}
+                                            display="flex"
+                                            color="#45B5A9" // changes depend on status
+                                            >
+                                                <CircleIcon fontSize="small" /> 
+                                                &nbsp;ดำเนินการซ่อมสำเร็จ
+                                            </Grid>
+
+                                            <Grid item xs={12} lg={2}
                                             display="flex"
                                             justifyContent="flex-end"
                                             >
@@ -107,32 +130,10 @@ function InformHistory() {
                             </Card>
                         </Grid>
                     </Grid>
-
-                    <Grid container marginTop={4}>
-                        <Grid item xs={12} lg={12}
-                        marginRight={19.5}
-                        >
-                            <Stack 
-                            spacing={2}
-                            direction="row"
-                            justifyContent="flex-end"
-                            >
-                                <Button 
-                                variant="outlined"
-                                color="custom"
-                                onClick={() => navigate("/home")}
-                                size="large"
-                                >
-                                    กลับ
-                                </Button>
-                            </Stack>
-                        </Grid>
-                    </Grid>
-
                 </Grid>
             </div>
         </ThemeProvider>
     );
 }
 
-export default InformHistory;
+export default StatusAll;

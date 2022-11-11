@@ -2,32 +2,31 @@ import { Button, createTheme } from "@mui/material";
 import * as React from "react";
 import { useNavigate } from "react-router-dom";
 import NavBar from "./NavBar";
-import "../css/Success.css";
+import "../css/TaskComplete.css";
 import { ThemeProvider, Grid } from "@mui/material";
 import { ReactComponent as SuccessIcon } from "../statics/success-icon.svg";
 
-function InformSuccess() {
+
+function TaskComplete() {
 
     const theme = createTheme({
         typography: {
-          fontFamily: "Sarabun",
-        },
-        palette: {
+            fontFamily: "Sarabun",
+          },
+          palette: {
             custom: {
                 main: "#555555"
             },
         },
-      });
+    })
 
     const navigate = useNavigate();
 
-    const csmCode = "CSM-25651100001";
-
-    return (
+    return(
         <ThemeProvider theme={theme}>
             <div className="page">
                 <NavBar />
-                
+
                 <Grid container>
                     <Grid item xs={12} lg={12}
                     display="flex"
@@ -42,14 +41,7 @@ function InformSuccess() {
                     justifyContent="center"
                     fontSize={28}
                     >
-                        แจ้งปัญหาสำเร็จ
-                    </Grid>
-
-                    <Grid item xs={12} lg={12}
-                    display="flex"
-                    justifyContent="center"
-                    fontSize={28}>
-                        รหัสแจ้งซ่อม&nbsp;{csmCode}
+                        ดำเนินการซ่อมสำเร็จ
                     </Grid>
 
                     <Grid item xs={12} lg={12}
@@ -68,9 +60,8 @@ function InformSuccess() {
                     </Grid>
                 </Grid>
             </div>
-            
         </ThemeProvider>
     );
 }
 
-export default InformSuccess;
+export default TaskComplete;

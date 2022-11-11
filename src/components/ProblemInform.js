@@ -23,8 +23,9 @@ function ProblemInform() {
             primary: {
                 main: "#555555",
             },
-            secondary: {
+            custom: {
                 main:  "#EB6B97",
+                contrastText: "#FFF"
             }
         }
       });
@@ -251,7 +252,7 @@ function ProblemInform() {
                                     <Grid item xs={12} lg={10}>
                                         <Stack>
                                             <TextField
-                                            style={{ width: 256 }}
+                                            style={textStyles}
                                             margin="normal"
                                             id="problem"
                                             select
@@ -312,7 +313,7 @@ function ProblemInform() {
                                     <Grid item xs={12} lg={10}>
                                         <Stack>
                                             <TextField
-                                            style={{ width: 256 }}
+                                            style={{ width: 300 }}
                                             margin="normal"
                                             id="problem"
                                             select
@@ -373,7 +374,7 @@ function ProblemInform() {
                                     <Grid item xs={12} lg={10}>
                                         <Stack>
                                             <TextField
-                                            style={{ width: 256 }}
+                                            style={textStyles}
                                             margin="normal"
                                             id="problem"
                                             select
@@ -434,7 +435,7 @@ function ProblemInform() {
                                     <Grid item xs={12} lg={10}>
                                         <Stack>
                                             <TextField
-                                            style={{ width: 256 }}
+                                            style={textStyles}
                                             margin="normal"
                                             id="problem"
                                             select
@@ -495,7 +496,7 @@ function ProblemInform() {
                                     <Grid item xs={12} lg={10}>
                                         <Stack>
                                             <TextField
-                                            style={{ width: 256 }}
+                                            style={textStyles}
                                             margin="normal"
                                             id="problem"
                                             select
@@ -598,23 +599,26 @@ function ProblemInform() {
                 justifyContent="center"
                 marginBottom={2}
                 >
-                    <Grid item xs={12} lg={12}>
+                    <Grid item xs={12} lg={12}
+                    marginRight={19.5}
+                    >
                             <Stack 
                             spacing={2}
                             direction="row"
                             justifyContent="flex-end"
-                            paddingRight={18}
                             >
                                 <Button 
                                 variant="outlined"
                                 onClick={() => navigate("/home")}
+                                size="large"
                                 >
                                     กลับ
                                 </Button>
 
                                 <Button variant="contained"
-                                color="secondary"
+                                color="custom"
                                 onClick={() => navigate("/inform-success")}
+                                size="large"
                                 >
                                     ตกลง
                                 </Button>
