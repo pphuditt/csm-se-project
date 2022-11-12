@@ -41,6 +41,9 @@ function ProblemInform() {
             custom: {
                 main:  "#EB6B97",
                 contrastText: "#FFF"
+            },
+            neutral: {
+                main: "#929292"
             }
         }
       });
@@ -302,6 +305,13 @@ function ProblemInform() {
                                             // onChange={}
                                         />
                                     </Grid>
+
+                                    <Grid item xs={12} lg={12}>
+                                        <Button variant="text" color="neutral">
+                                            <u>แก้ไขข้อความ</u>
+                                        </Button>
+                                    </Grid>
+
                                     <Grid item xs={12} lg={12}>
                                         <Button variant="text" 
                                         onClick={()=>{setTextBoxUnHide()}}
@@ -365,6 +375,12 @@ function ProblemInform() {
                                             // onChange={}
                                         />
                                     </Grid>
+
+                                    <Grid item xs={12} lg={12}>
+                                        <Button variant="text" color="neutral">
+                                            <u>แก้ไขข้อความ</u>
+                                        </Button>
+                                    </Grid>
                                     <Grid item xs={12} lg={12}>
                                         <Button variant="text">
                                             <AddProblems />
@@ -425,6 +441,12 @@ function ProblemInform() {
                                             // value={}
                                             // onChange={}
                                         />
+                                    </Grid>
+
+                                    <Grid item xs={12} lg={12}>
+                                        <Button variant="text" color="neutral">
+                                            <u>แก้ไขข้อความ</u>
+                                        </Button>
                                     </Grid>
                                     <Grid item xs={12} lg={12}>
                                         <Button variant="text">
@@ -487,6 +509,12 @@ function ProblemInform() {
                                             // onChange={}
                                         />
                                     </Grid>
+
+                                    <Grid item xs={12} lg={12}>
+                                        <Button variant="text" color="neutral">
+                                            <u>แก้ไขข้อความ</u>
+                                        </Button>
+                                    </Grid>
                                     <Grid item xs={12} lg={12}>
                                         <Button variant="text">
                                             <AddProblems />
@@ -547,6 +575,12 @@ function ProblemInform() {
                                             // value={}
                                             // onChange={}
                                         />
+                                    </Grid>
+
+                                    <Grid item xs={12} lg={12}>
+                                        <Button variant="text" color="neutral">
+                                            <u>แก้ไขข้อความ</u>
+                                        </Button>
                                     </Grid>
                                     <Grid item xs={12} lg={12}>
                                         <Button variant="text">

@@ -15,6 +15,9 @@ function StatusAll() {
               custom: {
                   main: "#555555"
               },
+              neutral: {
+                main: "#555555"
+              }
           },
     });
 
@@ -128,6 +131,23 @@ function StatusAll() {
                                     </CardContent>
                                 </CardActionArea>
                             </Card>
+                        </Grid>
+                    </Grid>
+
+                    <Grid container marginTop={4}>
+                        <Grid item xs={12} lg={12}
+                        display="flex"
+                        justifyContent="flex-end"
+                        marginRight={18.5}
+                        >
+                                <Button 
+                                variant="outlined"
+                                color="neutral"
+                                onClick={() => navigate("/home")}
+                                size="large"
+                                >
+                                    กลับ
+                                </Button>
                         </Grid>
                     </Grid>
                 </Grid>
