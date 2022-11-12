@@ -9,7 +9,22 @@ import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 import { Stack } from "@mui/system";
 import {ReactComponent as AddProblems} from "../statics/add-problem.svg";
 
-function ProblemInform() {
+// function setTextBoxUnHide(id){
+//     document.getElementsById(id).removeAttribute('hidden')
+// }
+
+function ProblemInform() { 
+
+    // function setTextBoxUnHide(id){
+    //     let elm = document.getElementsById(id)
+    //     alert(elm)
+    //     console.log(elm)
+    // }
+
+    const setTextBoxUnHide = () => {
+        let elm = document.getElementsById("problem2")
+        console.log(elm)
+    }
 
     const textStyles = {
         width: 300
@@ -238,7 +253,7 @@ function ProblemInform() {
                             }}>
                                 ส่วนที่ 2 : รายงานปัญหา
                                 <br />
-                                <div className="problem1">
+                                <div id="problem1">
                                 <Grid container 
                                 // columns={{xs:12, lg:10}}
                                 >
@@ -288,7 +303,9 @@ function ProblemInform() {
                                         />
                                     </Grid>
                                     <Grid item xs={12} lg={12}>
-                                        <Button variant="text">
+                                        <Button variant="text" 
+                                        onClick={()=>{setTextBoxUnHide()}}
+                                        >
                                             <AddProblems />
                                             &nbsp;&nbsp;<u>เพิ่มปัญหา</u>
                                         </Button>
@@ -299,7 +316,7 @@ function ProblemInform() {
                                 </Grid>
                                 </div>
 
-                                <div className="problem2">
+                                <div id="problem2" hidden>
                                 <Grid container 
                                 // columns={{xs:12, lg:10}}
                                 >
@@ -360,7 +377,7 @@ function ProblemInform() {
                                 </Grid>
                                 </div>
 
-                                <div className="problem3">
+                                <div id="problem3" hidden>
                                 <Grid container 
                                 // columns={{xs:12, lg:10}}
                                 >
@@ -421,7 +438,7 @@ function ProblemInform() {
                                 </Grid>
                                 </div>
 
-                                <div className="problem4">
+                                <div id="problem4" hidden>
                                 <Grid container 
                                 // columns={{xs:12, lg:10}}
                                 >
@@ -482,7 +499,7 @@ function ProblemInform() {
                                 </Grid>
                                 </div>
 
-                                <div className="problem5">
+                                <div id="problem5" hidden>
                                 <Grid container 
                                 // columns={{xs:12, lg:10}}
                                 >
