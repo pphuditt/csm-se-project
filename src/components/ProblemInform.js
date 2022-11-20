@@ -8,6 +8,7 @@ import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 import { Stack } from "@mui/system";
 import {ReactComponent as AddProblems} from "../statics/add-problem.svg";
+import axios from "axios";
 
 // function setTextBoxUnHide(id){
 //     document.getElementsById(id).removeAttribute('hidden')
@@ -15,16 +16,41 @@ import {ReactComponent as AddProblems} from "../statics/add-problem.svg";
 
 function ProblemInform() { 
 
-    // function setTextBoxUnHide(id){
-    //     let elm = document.getElementsById(id)
-    //     alert(elm)
-    //     console.log(elm)
-    // }
+    const navigate = useNavigate();
 
-    const setTextBoxUnHide = () => {
-        let elm = document.getElementsById("problem2")
-        console.log(elm)
-    }
+    const [address, setAddress] = React.useState('');
+    const [cond, setCond] = React.useState("");
+
+    const [date1, setDate1] = React.useState(null);
+    const [date2, setDate2] = React.useState(null);
+    const [date3, setDate3] = React.useState(null);
+
+    const [problemList, setProblemList] = React.useState([])
+    const [userfname, setUserfname] = React.useState('')
+    const [userPhoneNum, setUserPhoneNum] = React.useState('')
+
+    const [userInform, setUserInform] = React.useState('')
+    const [userInformPhoneNum, setUserInformPhoneNum] = React.useState('')
+
+
+    const addresses = [
+        {
+          value: '123',
+          label: '123',
+        },
+        {
+          value: '456',
+          label: '456',
+        },
+        {
+          value: '789',
+          label: '789',
+        },
+        {
+          value: '1011',
+          label: '1011',
+        },
+      ];
 
     const textStyles = {
         width: 300
@@ -47,40 +73,39 @@ function ProblemInform() {
             }
         }
       });
-
-
-    const navigate = useNavigate();
-
-    const addresses = [
-        {
-          value: '123',
-          label: '123',
-        },
-        {
-          value: '456',
-          label: '456',
-        },
-        {
-          value: '789',
-          label: '789',
-        },
-        {
-          value: '1011',
-          label: '1011',
-        },
-      ];
-
-      const [address, setAddress] = React.useState('');
+      
       const handleChange = (event) => {
         setAddress(event.target.value);
       };
 
-    const [cond, setCond] = React.useState("");
+      const getProblemList = () => {
+        axios.get('http://localhost:5164/problemdata')
+        .then((response) => {
+            setProblemList(response.data)
+        })
+        .catch((error) => {
+            console.log(error)
+        })
+      }
 
-    const [date1, setDate1] = React.useState(null);
-    const [date2, setDate2] = React.useState(null);
-    const [date3, setDate3] = React.useState(null);
+      const getUserInform = () => {
+        axios.get('http://localhost:5164/users/CM002')
+        .then((response) => {
+            let data = response.data
+            let fullName = response.data.fName + ' ' + response.data.lName
 
+            setUserfname(fullName)
+            setUserPhoneNum(data.phoneNum)
+        })
+        .catch((error) => {
+            console.log(error)
+        })
+      }
+
+      React.useEffect(()=>{
+        getUserInform()
+        getProblemList()
+      })
 
     return (
         <ThemeProvider theme={theme}>
@@ -147,7 +172,7 @@ function ProblemInform() {
                                         id="house-owner-name"
                                         disabled
                                         variant="filled"
-                                        // value={}
+                                        value={userfname}
                                         // onChange={}
                                         />
                                     </Grid>
@@ -165,6 +190,7 @@ function ProblemInform() {
                                         style={{ width: 128 }}
                                         margin="normal"
                                         id="address-number"
+                                        name="houseNo"
                                         select
                                         value={address}
                                         onChange={handleChange}
@@ -191,7 +217,7 @@ function ProblemInform() {
                                         style={textStyles}
                                         margin="normal"
                                         id="informer-name"
-                                        // value={}
+                                        value={userInform}
                                         // onChange={}
                                         />
                                     </Grid>
@@ -204,8 +230,12 @@ function ProblemInform() {
                                             control={<Radio onClick={(event) => {
                                                 if (event.target.value === cond) {
                                                     setCond("");
+                                                    setUserInform('')
+                                                    setUserInformPhoneNum('')
                                                   } else {
                                                     setCond(event.target.value);
+                                                    setUserInform(userfname)
+                                                    setUserInformPhoneNum(userPhoneNum)
                                                   }
                                             }} />} 
                                             label="เจ้าของบ้านเป็นผู้แจ้งซ่อม" />
@@ -224,7 +254,7 @@ function ProblemInform() {
                                         style={textStyles}
                                         margin="normal"
                                         id="informer-mobile-no"
-                                        // value={}
+                                        value={userInformPhoneNum}
                                         // onChange={}
                                         />
                                     </Grid>
@@ -276,14 +306,13 @@ function ProblemInform() {
                                             select
                                             // value={address}
                                             // onChange={handleChange}
-                                            />
-                                            <TextField
-                                            style={textStyles}
-                                            margin="normal"
-                                            id="problem-other"
-                                            // value={address}
-                                            // onChange={handleChange}
-                                            />
+                                            >
+                                                {problemList.map((problem) => (
+                                                <MenuItem key={problem.pdId} value={problem.pdDesc}>
+                                                {problem.pdDesc}
+                                                </MenuItem>
+                                            ))}
+                                            </TextField>
                                         </Stack>
                                     </Grid>
 
@@ -314,7 +343,7 @@ function ProblemInform() {
 
                                     <Grid item xs={12} lg={12}>
                                         <Button variant="text" 
-                                        onClick={()=>{setTextBoxUnHide()}}
+                                        // onClick={()=>{setTextBoxUnHide()}}
                                         >
                                             <AddProblems />
                                             &nbsp;&nbsp;<u>เพิ่มปัญหา</u>
@@ -344,9 +373,15 @@ function ProblemInform() {
                                             margin="normal"
                                             id="problem"
                                             select
-                                            // value={address}
-                                            // onChange={handleChange}
-                                            />
+                                            value={problemList}
+                                            onChange={handleChange}
+                                            >
+                                                {problemList.map((problem) => (
+                                                <MenuItem key={problem.pdId} value={problem.pdDesc}>
+                                                {problem.pdDesc}
+                                                </MenuItem>
+                                            ))}
+                                            </TextField>
                                             <TextField
                                             style={textStyles}
                                             margin="normal"
@@ -413,7 +448,13 @@ function ProblemInform() {
                                             select
                                             // value={address}
                                             // onChange={handleChange}
-                                            />
+                                            >
+                                                {problemList.map((problem) => (
+                                                <MenuItem key={problem.pdId} value={problem.pdDesc}>
+                                                {problem.pdDesc}
+                                                </MenuItem>
+                                            ))}
+                                            </TextField>
                                             <TextField
                                             style={textStyles}
                                             margin="normal"
@@ -480,7 +521,13 @@ function ProblemInform() {
                                             select
                                             // value={address}
                                             // onChange={handleChange}
-                                            />
+                                            >
+                                                {problemList.map((problem) => (
+                                                <MenuItem key={problem.pdId} value={problem.pdDesc}>
+                                                {problem.pdDesc}
+                                                </MenuItem>
+                                            ))}
+                                            </TextField>
                                             <TextField
                                             style={textStyles}
                                             margin="normal"
@@ -547,7 +594,13 @@ function ProblemInform() {
                                             select
                                             // value={address}
                                             // onChange={handleChange}
-                                            />
+                                            >
+                                                {problemList.map((problem) => (
+                                                <MenuItem key={problem.pdId} value={problem.pdDesc}>
+                                                {problem.pdDesc}
+                                                </MenuItem>
+                                            ))}
+                                            </TextField>
                                             <TextField
                                             style={textStyles}
                                             margin="normal"
