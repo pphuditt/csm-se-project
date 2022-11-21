@@ -124,7 +124,7 @@ function ProblemInform() {
             description: problem1,
             status: headId1===""? null:'pending'
         }).then((response) => {
-            alert(response.status)
+            // alert(response.status)
             postSubproblem2()
             console.log("submit1")
         }).catch((error) => {
@@ -138,7 +138,7 @@ function ProblemInform() {
             description: problem2,
             status: headId2===""? null:'pending'
         }).then((response) => {
-            alert(response.status)
+            // alert(response.status)
             postSubproblem3()
             console.log("submit2")
         }).catch((error) => {
@@ -152,7 +152,7 @@ function ProblemInform() {
             description: problem3,
             status: headId3===""? null:'pending'
         }).then((response) => {
-            alert(response.status)
+            // alert(response.status)
             postSubproblem4()
             console.log("submit3")
         }).catch((error) => {
@@ -166,7 +166,7 @@ function ProblemInform() {
             description: problem4,
             status: headId4===""? null:'pending'
         }).then((response) => {
-            alert(response.status)
+            // alert(response.status)
             postSubproblem5()
             console.log("submit4")
         }).catch((error) => {
@@ -180,7 +180,7 @@ function ProblemInform() {
             description: problem5,
             status: headId5===""? null:'pending'
         }).then((response) => {
-            alert(response.status)
+            // alert(response.status)
             postAllProblem()
             console.log("submit5")
         }).catch((error) => {
@@ -192,7 +192,7 @@ function ProblemInform() {
         axios.post(`http://localhost:5164/alltask`,{
 
         }).then((response) => {
-            alert(response.status)
+            // alert(response.status)
             console.log("post allproblem")
             postCSM()
         }).catch((error) => {
@@ -209,7 +209,7 @@ function ProblemInform() {
             nameReport: userInform,
             phoneNum: userInformPhoneNum
         }).then((response) => {
-            alert(response.status)
+            // alert(response.status)
             navigate("/inform-success")
             console.log("postcsm")
         }).catch((error) => {
