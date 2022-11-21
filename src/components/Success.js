@@ -5,6 +5,7 @@ import NavBar from "./NavBar";
 import "../css/Success.css";
 import { ThemeProvider, Grid } from "@mui/material";
 import { ReactComponent as SuccessIcon } from "../statics/success-icon.svg";
+import axios from "axios";
 
 function InformSuccess() {
 
@@ -21,7 +22,26 @@ function InformSuccess() {
 
     const navigate = useNavigate();
 
-    const csmCode = "CSM-25651100001";
+    // const csmCode = "CSM-25651100001";
+
+    const [csmCode, setCsmCode] = React.useState('')
+
+    const getCsmData = () => {
+        axios.get('http://localhost:5164/csmproblem')
+        .then((response) => {
+            let tmp = response.data
+            let n = tmp.length
+            console.log(tmp[n-1])
+            setCsmCode(tmp[n-1].csmId)
+        })
+        .catch((error) => {
+            console.log(error)
+        })
+    }
+
+    React.useEffect(()=>{
+        getCsmData()
+      },[])
 
     return (
         <ThemeProvider theme={theme}>
