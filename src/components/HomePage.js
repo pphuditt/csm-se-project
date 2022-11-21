@@ -10,14 +10,15 @@ import {ReactComponent as ProblemInformIcon} from "../statics/problem-inform-ico
 import {ReactComponent as InformHistoryIcon} from "../statics/inform-history-icon.svg";
 
 function HomePage() {
-  
+
+  const navigate = useNavigate();
+
   const theme = createTheme({
     typography: {
       fontFamily: "Sarabun",
     },
   });
-
-  const navigate = useNavigate();
+  
 
   return (
     <ThemeProvider theme={theme}>

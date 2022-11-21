@@ -5,3 +5,12 @@ body {
 .page {
     align-items: center;
 }
+
+.signin-navbar {
+    width: 100%;
+    height: 64px;
+    margin: 0;
+    background: #45B5A9;
+    position: relative;
+    top:0;
+}

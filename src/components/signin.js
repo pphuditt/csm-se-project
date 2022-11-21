@@ -56,7 +56,8 @@ export default function SignIn() {
   return (
     <ThemeProvider theme={theme}>
       <div className='page'>
-        <NavBar />
+        {/* <NavBar /> */}
+        <div className='signin-navbar' />
         <Grid 
           container
           spacing={2}
